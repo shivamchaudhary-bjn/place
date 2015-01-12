@@ -8,10 +8,8 @@ typedef struct point {
 int m[1000001] = {0};
 void create(int ind,int x,int y,couple a[],int n)
 {
-	//cout << "x and y are " << x << " " << y << endl;
 	if(x == y) {
 		m[ind]++;
-	//cout << "index is " << ind << " and value is " << m[ind] << endl;
 		return;
 	}else if(x+1 == y) {
 		if(a[m[2*ind+1]].fem > a[m[2*ind+2]].fem) {
