@@ -1,0 +1,123 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+typedef struct node {
+	int data;
+	struct node *next;
+}node;
+void create(node **head,int n)
+{
+	if(*head == NULL) {
+		*head = (node *)malloc(sizeof(node));
+		(*head)->data = n;
+		(*head)->next = NULL;
+	}else {
+		create(&((*head)->next),n);
+	}
+}
+void print(node **head)
+{
+	while(*head != NULL) {
+		cout << (*head)->data << "-->";
+		*head = (*head)->next;
+	}
+	cout << endl;
+}
+void swap(node **com,node **a,node **b,node **p,node **q)
+{
+	node *sw,*ut;
+	if((*a)->next == (*b)) {
+		if((*a) == *com) {
+			(*a)->next = (*b)->next;
+			(*b)->next = (*a);
+			
+			sw = *a;
+			*a = *b;
+			*b = sw;
+			
+			*com = *a;
+			*p = *a;
+			*q = *b;
+		}else {
+			(*a)->next = (*b)->next;
+			(*b)->next = (*a);
+			(*p)->next = (*b);
+
+			sw = *a;
+			*a = *b;
+			*b = sw;
+
+			*q = *b;
+		}
+	}else {
+		if((*a) == *com) {
+			ut = (*b)->next;
+			(*b)->next = (*a)->next;
+			(*a)->next = ut;
+			(*q)->next = (*a);
+
+			sw = *a;
+			*a = *b;
+			*b = sw;
+			
+			*q = *b;
+			*com = *a;
+		}else {
+			ut = (*b)->next;
+			(*b)->next = (*a)->next;
+			(*a)->next = ut;
+			(*p)->next = (*b);
+			(*q)->next = (*a);
+			
+			sw = *a;
+			*a = *b;
+			*b = sw;
+			
+			*q = *b;
+		}
+	}
+}		
+void sorting(node **head)
+{
+	node *com = *head;
+	node *temp = *head;
+	node *p = *head;
+	node *q;
+	node *temp1;
+
+	while(temp->next != NULL) {
+		temp1 = temp->next;
+		q = temp->next;
+		while(temp1 != NULL) {
+			if(temp->data > temp1->data) {
+				cout << "a is " << temp->data << " ";
+				cout << "b is " << temp1->data << endl;
+				swap(&com,&temp,&temp1,&p,&q);
+			}
+			temp1 = temp1->next;
+		}
+		temp = temp->next;
+	}
+}
+
+int main()
+{
+	node *head = NULL;
+	cout << "create a unsorted link list\n";
+	while(1) 
+	{
+		int n;
+		cin >> n;
+		if(n == 999) {
+			break;
+		}else {
+			create(&head,n);
+		}
+	}
+	print(&head);
+	sorting(&head);
+	cout << "link list after sorting\n";
+	print(&head);
+	return 0;
+}
+
