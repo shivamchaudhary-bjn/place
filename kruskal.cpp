@@ -11,7 +11,7 @@ typedef struct edge
 }edge;
 bool pt(edge a,edge b)
 {
-	return(a.w < b.w);
+	return(a.w > b.w);
 }
 int main()
 {
@@ -32,7 +32,8 @@ int main()
 	for(it = v.begin();it != v.end();it++) {
 		int u = (*it).v1;
 		int t = (*it).v2;
-		int 
+		int wt = (*it).w;
+	}
 	return 0;
 }
 
