@@ -23,6 +23,7 @@ void create(node ** root,int n)
 		}
 	}
 	//first comm;
+	//fourth comm;
 }
 void inorder(node *root)
 {
