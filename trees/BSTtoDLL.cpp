@@ -8,7 +8,7 @@ typedef struct node {
 }node;
 void create(node ** root,int n)
 {
-	node *temp;
+	//node *temp;
 	if(*(root) == NULL) {
 		temp = (node *)malloc(sizeof(node));
 		temp->data = n;
