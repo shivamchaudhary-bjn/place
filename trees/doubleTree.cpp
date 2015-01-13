@@ -17,10 +17,8 @@ void create(node ** root,int n)
 		(*root) = temp;
 	}else {
 		if(n <= (*root)->data) {
-			//cout << "root->data is " << (*root)->data << endl;
 			create(&((*root)->left),n);
 		}else if(n > (*root)->data) {
-			//cout << "root->data is " << (*root)->data << endl;
 			create(&((*root)->right),n);
 		}
 	}
@@ -31,7 +29,7 @@ void inorder(node *root)
 		return;
 	}else {
 		inorder(root->left);
-		cout << root->data << " ";
+		cout << "The value of root is " << root->data << " ";
 		inorder(root->right);
 	}
 }
