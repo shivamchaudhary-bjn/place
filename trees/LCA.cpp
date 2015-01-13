@@ -8,7 +8,7 @@ typedef struct node {
 }node;
 void makeBST(node **root,int n)
 {
-	if((*root) == NULL) {
+	//if((*root) == NULL) {
 		node *temp = (node *)malloc(sizeof(node));
 		temp->val = n;
 		temp->left = NULL;
