@@ -17,11 +17,11 @@ void create(node ** root,int n)
 		(*root) = temp;
 	}else {
 		if(n <= (*root)->data) {
-			//cout << "root->data is " << (*root)->data << endl;
+			cout << "root->data is " << (*root)->data << endl;
 			create(&((*root)->left),n);
 		}else if(n > (*root)->data) {
 			//cout << "root->data is " << (*root)->data << endl;
-			create(&((*root)->right),n);
+			//create(&((*root)->right),n);
 		}
 	}
 }
