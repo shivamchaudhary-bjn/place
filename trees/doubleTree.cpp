@@ -24,6 +24,7 @@ void create(node ** root,int n)
 			create(&((*root)->right),n);
 		}
 	}
+	//first comm;
 }
 void inorder(node *root)
 {
