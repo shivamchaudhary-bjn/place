@@ -19,8 +19,7 @@ void create(int ind,int x,int y,couple a[],int n)
 	}
 	create(2*ind+1,x,(x+y)/2,a,n);
 	create(2*ind+2,(x+y)/2+1,y,a,n);
-	m[ind] = m[2*ind+1]+m[2*ind+2];
-	//cout << "index is " << ind << " and value is " << m[ind] << endl;
+	m[ind] = m[2*ind+1]+m[2*ind+1];
 }
 /*int rmq(int ind,int x,int y,couple a[],int n,int i,int j)
 {
