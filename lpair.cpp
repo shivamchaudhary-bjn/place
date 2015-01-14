@@ -19,7 +19,7 @@ void create(int ind,int x,int y,couple a[],int n)
 	}
 	create(2*ind+1,x,(x+y)/2,a,n);
 	create(2*ind+2,(x+y)/2+1,y,a,n);
-	m[ind] = m[2*ind+1]+m[2*ind+1];
+	m[ind] = m[2*ind+1]+m[2*ind+2];
 }
 /*int rmq(int ind,int x,int y,couple a[],int n,int i,int j)
 {
@@ -60,6 +60,6 @@ int main()
 	}
 	create(0,0,n-1,a,n);
 	cout << m[0] << endl;
-	//cout << rmq(0,0,n-1,a,n,0,n-1) << endl;
+	cout << rmq(0,0,n-1,a,n,0,n-1) << endl;
 	return 0;
 }
